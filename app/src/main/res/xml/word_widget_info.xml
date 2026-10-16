@@ -1,0 +1,7 @@
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="240dp"
+    android:minHeight="150dp"
+    android:updatePeriodMillis="21600000"
+    android:initialLayout="@layout/word_widget"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen" />

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <set name="selected_categories">
+        <string>Nature</string>
+        <string>People</string>
+        <string>Places &amp; time</string>
+        <string>Everyday</string>
+    </set>
+    <int name="stage_affiliation_noun" value="1" />
+    <int name="due_ascidiaceae_noun" value="20737" />
+    <boolean name="daily_enabled" value="false" />
+    <int name="due_urochordate_noun" value="20737" />
+    <int name="due_regularization_noun" value="20738" />
+    <boolean name="dark_theme" value="false" />
+    <int name="due_osteopath_noun" value="20737" />
+    <set name="saved_words">
+        <string>backseat_noun</string>
+        <string>osteopath_noun</string>
+        <string>apolune_noun</string>
+        <string>humiliatingly_adverb</string>
+        <string>aegospotamos_noun</string>
+        <string>priestly_adjective</string>
+        <string>regularization_noun</string>
+        <string>urochordate_noun</string>
+        <string>here_noun</string>
+        <string>affiliation_noun</string>
+        <string>biosphere_noun</string>
+        <string>ascidiaceae_noun</string>
+    </set>
+    <int name="due_aegospotamos_noun" value="20737" />
+    <set name="hidden_words">
+        <string>standardization_noun</string>
+    </set>
+    <int name="due_apolune_noun" value="20737" />
+    <int name="due_here_noun" value="20737" />
+    <int name="due_backseat_noun" value="20737" />
+    <int name="due_affiliation_noun" value="20738" />
+    <int name="due_baulk_noun" value="20737" />
+    <int name="due_humiliatingly_adverb" value="20737" />
+    <int name="due_biosphere_noun" value="20737" />
+    <int name="due_priestly_adjective" value="20737" />
+    <int name="stage_regularization_noun" value="0" />
+</map>

@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="18dp"
+    android:background="@drawable/widget_background">
+
+    <TextView
+        android:id="@+id/widget_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LAFZ  /  TODAY'S WORD"
+        android:textColor="#C9B4EF"
+        android:textSize="11sp"
+        android:letterSpacing="0.12"
+        android:fontFamily="sans-serif-medium" />
+
+    <TextView
+        android:id="@+id/widget_word"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="lucid"
+        android:textColor="#FCFAFF"
+        android:textSize="30sp"
+        android:fontFamily="serif" />
+
+    <TextView
+        android:id="@+id/widget_meaning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:maxLines="2"
+        android:text="Clear enough to understand; expressed with clarity."
+        android:textColor="#D1C3E2"
+        android:textSize="13sp" />
+</LinearLayout>

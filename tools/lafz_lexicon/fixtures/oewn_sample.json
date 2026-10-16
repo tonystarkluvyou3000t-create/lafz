@@ -1,0 +1,60 @@
+[
+  {
+    "id": "08437235-n",
+    "lexname": "noun.group",
+    "members": [
+      {"lemma": "depository financial institution", "sense": {"id": "depository_financial_institution%1:14:00::"}, "poskey": "n"},
+      {"lemma": "bank", "sense": {"id": "bank%1:14:00::"}, "poskey": "n"},
+      {"lemma": "banking concern", "sense": {"id": "banking_concern%1:14:00::"}, "poskey": "n"},
+      {"lemma": "banking company", "sense": {"id": "banking_company%1:14:00::"}, "poskey": "n"}
+    ],
+    "definition": ["a financial institution that accepts deposits and channels the money into lending activities"],
+    "example": ["he cashed a check at the bank", "that bank holds the mortgage on my home"],
+    "partOfSpeech": "n",
+    "hypernym": ["08071473-n"]
+  },
+  {
+    "id": "09236472-n",
+    "lexname": "noun.object",
+    "members": [{"lemma": "bank", "sense": {"id": "bank%1:17:01::"}, "poskey": "n"}],
+    "definition": ["sloping land (especially the slope beside a body of water)"],
+    "example": ["they pulled the canoe up on the bank", "he sat on the bank of the river and watched the currents"],
+    "partOfSpeech": "n",
+    "hypernym": ["09460358-n"]
+  },
+  {
+    "id": "00170126-n",
+    "lexname": "noun.act",
+    "members": [{"lemma": "bank", "sense": {"id": "bank%1:04:00::"}, "poskey": "n"}],
+    "definition": ["a flight maneuver; aircraft tips laterally about its longitudinal axis (especially in turning)"],
+    "example": ["the plane went into a steep bank"],
+    "partOfSpeech": "n"
+  },
+  {
+    "id": "02043258-v",
+    "lexname": "verb.motion",
+    "members": [{"lemma": "bank", "sense": {"id": "bank%2:38:00::"}, "poskey": "v"}],
+    "definition": ["tip laterally"],
+    "example": ["the pilot had to bank the aircraft"],
+    "partOfSpeech": "v",
+    "hypernym": ["02043389-v"]
+  },
+  {
+    "id": "07755101-n",
+    "lexname": "noun.food",
+    "members": [{"lemma": "apple", "sense": {"id": "apple%1:13:00::"}, "pronunciation": [{"value": "ˈæp.əl"}], "poskey": "n"}],
+    "definition": ["fruit with red or yellow or green skin and sweet to tart crisp whitish flesh"],
+    "partOfSpeech": "n"
+  },
+  {
+    "id": "12654755-n",
+    "lexname": "noun.plant",
+    "members": [
+      {"lemma": "apple", "sense": {"id": "apple%1:20:00::"}, "pronunciation": [{"value": "ˈæp.əl"}], "poskey": "n"},
+      {"lemma": "orchard apple tree", "sense": {"id": "orchard_apple_tree%1:20:00::"}, "poskey": "n"},
+      {"lemma": "Malus pumila", "sense": {"id": "malus_pumila%1:20:00::"}, "poskey": "n"}
+    ],
+    "definition": ["native Eurasian tree widely cultivated in many varieties for its firm rounded edible fruits"],
+    "partOfSpeech": "n"
+  }
+]

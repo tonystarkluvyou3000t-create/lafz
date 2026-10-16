@@ -1,0 +1,1303 @@
+{
+  "schema_version": 2,
+  "tiers": [
+    {
+      "name": "Everyday",
+      "rank_min": 1,
+      "rank_max": 1000
+    },
+    {
+      "name": "Stretch",
+      "rank_min": 1001,
+      "rank_max": 2809
+    },
+    {
+      "name": "Full Dictionary",
+      "rank_min": null,
+      "rank_max": null
+    }
+  ],
+  "topic_lexname_map": {
+    "noun.animal": [
+      "Nature",
+      0.82
+    ],
+    "noun.plant": [
+      "Nature",
+      0.82
+    ],
+    "noun.tree": [
+      "Nature",
+      0.82
+    ],
+    "noun.weather": [
+      "Nature",
+      0.82
+    ],
+    "noun.object": [
+      "Nature",
+      0.82
+    ],
+    "verb.weather": [
+      "Nature",
+      0.82
+    ],
+    "noun.food": [
+      "Food",
+      0.82
+    ],
+    "verb.consumption": [
+      "Food",
+      0.82
+    ],
+    "noun.substance": [
+      "Science",
+      0.82
+    ],
+    "noun.process": [
+      "Science",
+      0.82
+    ],
+    "noun.body": [
+      "Health",
+      0.82
+    ],
+    "verb.body": [
+      "Health",
+      0.82
+    ],
+    "noun.feeling": [
+      "Emotions",
+      0.82
+    ],
+    "noun.motive": [
+      "Emotions",
+      0.82
+    ],
+    "verb.emotion": [
+      "Emotions",
+      0.82
+    ],
+    "noun.person": [
+      "People",
+      0.82
+    ],
+    "noun.group": [
+      "Society",
+      0.82
+    ],
+    "verb.social": [
+      "Society",
+      0.82
+    ],
+    "noun.communication": [
+      "Communication",
+      0.82
+    ],
+    "verb.communication": [
+      "Communication",
+      0.82
+    ],
+    "noun.cognition": [
+      "Learning & Thought",
+      0.82
+    ],
+    "verb.cognition": [
+      "Learning & Thought",
+      0.82
+    ],
+    "noun.possession": [
+      "Work & Money",
+      0.82
+    ],
+    "verb.possession": [
+      "Work & Money",
+      0.82
+    ],
+    "noun.location": [
+      "Places",
+      0.82
+    ],
+    "noun.time": [
+      "Time",
+      0.82
+    ],
+    "noun.quantity": [
+      "Numbers & Shapes",
+      0.82
+    ],
+    "noun.shape": [
+      "Numbers & Shapes",
+      0.82
+    ],
+    "noun.relation": [
+      "Relationships",
+      0.82
+    ],
+    "noun.artifact": [
+      "Objects & Tools",
+      0.82
+    ],
+    "noun.act": [
+      "Actions",
+      0.82
+    ],
+    "noun.event": [
+      "Actions",
+      0.82
+    ],
+    "verb.contact": [
+      "Actions",
+      0.82
+    ],
+    "verb.creation": [
+      "Actions",
+      0.82
+    ],
+    "verb.motion": [
+      "Travel & Movement",
+      0.82
+    ],
+    "verb.competition": [
+      "Sports",
+      0.82
+    ],
+    "verb.change": [
+      "Change",
+      0.82
+    ],
+    "verb.perception": [
+      "Senses",
+      0.82
+    ],
+    "noun.state": [
+      "States & Conditions",
+      0.82
+    ],
+    "verb.stative": [
+      "States & Conditions",
+      0.82
+    ],
+    "noun.attribute": [
+      "Qualities",
+      0.82
+    ],
+    "adj.all": [
+      "Qualities",
+      0.72
+    ],
+    "adj.pert": [
+      "Qualities",
+      0.72
+    ],
+    "adj.ppl": [
+      "Qualities",
+      0.72
+    ],
+    "adv.all": [
+      "Manner",
+      0.72
+    ],
+    "noun.Tops": [
+      "Ideas & Concepts",
+      0.82
+    ],
+    "noun.phenomenon": [
+      "Ideas & Concepts",
+      0.82
+    ]
+  },
+  "topic_definition_rules": {
+    "noun.phenomenon": [
+      {
+        "category": "Science",
+        "confidence": 0.86,
+        "any_terms": [
+          "physics",
+          "force",
+          "attraction",
+          "mass",
+          "electromagnetic",
+          "radiation",
+          "electricity",
+          "electron",
+          "energy",
+          "magnetic",
+          "matter",
+          "wave",
+          "particle",
+          "atom",
+          "molecule"
+        ]
+      }
+    ],
+    "noun.artifact": [
+      {
+        "category": "Technology",
+        "confidence": 0.84,
+        "any_terms": [
+          "computer",
+          "computers",
+          "software",
+          "electronic",
+          "digital",
+          "semiconductor"
+        ]
+      },
+      {
+        "category": "Arts & Culture",
+        "confidence": 0.84,
+        "any_terms": [
+          "musical",
+          "sculpture",
+          "painting"
+        ]
+      },
+      {
+        "category": "Travel & Movement",
+        "confidence": 0.84,
+        "any_terms": [
+          "vehicle",
+          "aircraft",
+          "automobile",
+          "railway",
+          "locomotive",
+          "bicycle"
+        ]
+      },
+      {
+        "category": "Health",
+        "confidence": 0.84,
+        "any_terms": [
+          "surgical",
+          "prosthesis"
+        ]
+      }
+    ],
+    "noun.cognition": [
+      {
+        "category": "Science",
+        "confidence": 0.84,
+        "any_terms": [
+          "physics",
+          "chemistry",
+          "biology",
+          "astronomy",
+          "geology",
+          "molecules"
+        ]
+      },
+      {
+        "category": "Health",
+        "confidence": 0.84,
+        "any_terms": [
+          "medicine",
+          "disease",
+          "diseases",
+          "anatomy",
+          "surgery"
+        ]
+      },
+      {
+        "category": "Technology",
+        "confidence": 0.84,
+        "any_terms": [
+          "software",
+          "computing",
+          "programming",
+          "algorithm"
+        ]
+      },
+      {
+        "category": "Numbers & Shapes",
+        "confidence": 0.84,
+        "any_terms": [
+          "mathematics",
+          "geometry",
+          "algebra",
+          "arithmetic"
+        ]
+      },
+      {
+        "category": "Society",
+        "confidence": 0.84,
+        "any_terms": [
+          "religion",
+          "theology",
+          "politics",
+          "jurisprudence"
+        ]
+      },
+      {
+        "category": "Work & Money",
+        "confidence": 0.84,
+        "any_terms": [
+          "economics",
+          "finance",
+          "accounting"
+        ]
+      }
+    ],
+    "learner.noun": [
+      {
+        "category": "Science",
+        "confidence": 0.68,
+        "any_terms": [
+          "physics",
+          "chemistry",
+          "biology",
+          "molecule",
+          "molecules",
+          "atom",
+          "atoms",
+          "radiation",
+          "gravity",
+          "photosynthesis",
+          "photosynthesis",
+          "sunlight"
+        ]
+      },
+      {
+        "category": "Work & Money",
+        "confidence": 0.68,
+        "any_terms": [
+          "money",
+          "salary",
+          "wages",
+          "banking",
+          "borrow",
+          "loan",
+          "loans",
+          "payment",
+          "profit",
+          "profits",
+          "employment",
+          "employer",
+          "employee",
+          "reward",
+          "prize"
+        ]
+      },
+      {
+        "category": "Technology",
+        "confidence": 0.68,
+        "any_terms": [
+          "computer",
+          "computers",
+          "software",
+          "internet",
+          "website",
+          "websites",
+          "digital",
+          "electronic",
+          "programming"
+        ]
+      },
+      {
+        "category": "Society",
+        "confidence": 0.72,
+        "any_terms": [
+          "government",
+          "democracy",
+          "democratic",
+          "politics",
+          "political",
+          "legal",
+          "justice",
+          "rights",
+          "election",
+          "religion"
+        ]
+      },
+      {
+        "category": "Learning & Thought",
+        "confidence": 0.72,
+        "any_terms": [
+          "education",
+          "educational",
+          "teaching",
+          "students",
+          "university"
+        ]
+      },
+      {
+        "category": "Health",
+        "confidence": 0.68,
+        "any_terms": [
+          "disease",
+          "diseases",
+          "illness",
+          "illnesses",
+          "surgery",
+          "medical",
+          "medicine",
+          "medicines",
+          "doctor",
+          "doctors",
+          "hospital",
+          "blood",
+          "lungs",
+          "breathing",
+          "breathe",
+          "health",
+          "sick",
+          "patient",
+          "patients"
+        ]
+      },
+      {
+        "category": "Sports",
+        "confidence": 0.68,
+        "any_terms": [
+          "sport",
+          "sports",
+          "baseball",
+          "football",
+          "basketball",
+          "cricket",
+          "tennis",
+          "soccer",
+          "golf"
+        ]
+      },
+      {
+        "category": "Arts & Culture",
+        "confidence": 0.68,
+        "any_terms": [
+          "music",
+          "musical",
+          "painting",
+          "poetry",
+          "poem",
+          "poems",
+          "theatre",
+          "theater",
+          "cinema",
+          "movie",
+          "movies",
+          "sculpture"
+        ]
+      },
+      {
+        "category": "Food",
+        "confidence": 0.68,
+        "any_terms": [
+          "food",
+          "foods",
+          "meal",
+          "meals",
+          "cooking",
+          "edible",
+          "eat",
+          "eating",
+          "drink",
+          "drinking"
+        ]
+      },
+      {
+        "category": "Nature",
+        "confidence": 0.68,
+        "any_terms": [
+          "animal",
+          "animals",
+          "plant",
+          "plants",
+          "tree",
+          "trees",
+          "flower",
+          "flowers",
+          "river",
+          "rivers",
+          "forest",
+          "ocean",
+          "rain",
+          "snow",
+          "weather",
+          "bird",
+          "birds"
+        ]
+      },
+      {
+        "category": "Numbers & Shapes",
+        "confidence": 0.68,
+        "any_terms": [
+          "number",
+          "numbers",
+          "mathematics",
+          "geometry",
+          "algebra",
+          "arithmetic",
+          "triangle",
+          "circle"
+        ]
+      },
+      {
+        "category": "Emotions",
+        "confidence": 0.68,
+        "any_terms": [
+          "emotion",
+          "emotions",
+          "sadness",
+          "happiness",
+          "angry",
+          "afraid",
+          "sad",
+          "happy",
+          "love",
+          "fear"
+        ]
+      },
+      {
+        "category": "Travel & Movement",
+        "confidence": 0.68,
+        "any_terms": [
+          "travel",
+          "traveling",
+          "travelling",
+          "journey",
+          "trip",
+          "vehicle",
+          "vehicles",
+          "aircraft",
+          "flight",
+          "driving",
+          "walking",
+          "walk",
+          "running",
+          "foot"
+        ]
+      },
+      {
+        "category": "Time",
+        "confidence": 0.68,
+        "any_terms": [
+          "time",
+          "hour",
+          "hours",
+          "minute",
+          "minutes",
+          "year",
+          "years",
+          "month",
+          "months",
+          "yesterday",
+          "tomorrow"
+        ]
+      },
+      {
+        "category": "Communication",
+        "confidence": 0.68,
+        "any_terms": [
+          "language",
+          "languages",
+          "speak",
+          "speaking",
+          "speech",
+          "communicate",
+          "communication",
+          "message",
+          "messages",
+          "writing"
+        ]
+      },
+      {
+        "category": "People",
+        "confidence": 0.68,
+        "any_terms": [
+          "person",
+          "people",
+          "someone",
+          "somebody",
+          "man",
+          "woman",
+          "child"
+        ]
+      },
+      {
+        "category": "Places",
+        "confidence": 0.68,
+        "any_terms": [
+          "place",
+          "location",
+          "region",
+          "country",
+          "city",
+          "town"
+        ]
+      },
+      {
+        "category": "Learning & Thought",
+        "confidence": 0.68,
+        "any_terms": [
+          "learn",
+          "learning",
+          "knowledge",
+          "understand",
+          "understanding",
+          "thinking",
+          "thought",
+          "idea",
+          "ideas"
+        ]
+      }
+    ],
+    "learner.verb": [
+      {
+        "category": "Science",
+        "confidence": 0.68,
+        "any_terms": [
+          "physics",
+          "chemistry",
+          "biology",
+          "molecule",
+          "molecules",
+          "atom",
+          "atoms",
+          "radiation",
+          "gravity",
+          "photosynthesis",
+          "photosynthesis",
+          "sunlight"
+        ]
+      },
+      {
+        "category": "Work & Money",
+        "confidence": 0.68,
+        "any_terms": [
+          "money",
+          "salary",
+          "wages",
+          "banking",
+          "borrow",
+          "loan",
+          "loans",
+          "payment",
+          "profit",
+          "profits",
+          "employment",
+          "employer",
+          "employee",
+          "reward",
+          "prize"
+        ]
+      },
+      {
+        "category": "Technology",
+        "confidence": 0.68,
+        "any_terms": [
+          "computer",
+          "computers",
+          "software",
+          "internet",
+          "website",
+          "websites",
+          "digital",
+          "electronic",
+          "programming"
+        ]
+      },
+      {
+        "category": "Society",
+        "confidence": 0.72,
+        "any_terms": [
+          "government",
+          "democracy",
+          "democratic",
+          "politics",
+          "political",
+          "legal",
+          "justice",
+          "rights",
+          "election",
+          "religion"
+        ]
+      },
+      {
+        "category": "Learning & Thought",
+        "confidence": 0.72,
+        "any_terms": [
+          "education",
+          "educational",
+          "teaching",
+          "students",
+          "university"
+        ]
+      },
+      {
+        "category": "Health",
+        "confidence": 0.68,
+        "any_terms": [
+          "disease",
+          "diseases",
+          "illness",
+          "illnesses",
+          "surgery",
+          "medical",
+          "medicine",
+          "medicines",
+          "doctor",
+          "doctors",
+          "hospital",
+          "blood",
+          "lungs",
+          "breathing",
+          "breathe",
+          "health",
+          "sick",
+          "patient",
+          "patients"
+        ]
+      },
+      {
+        "category": "Sports",
+        "confidence": 0.68,
+        "any_terms": [
+          "sport",
+          "sports",
+          "baseball",
+          "football",
+          "basketball",
+          "cricket",
+          "tennis",
+          "soccer",
+          "golf"
+        ]
+      },
+      {
+        "category": "Arts & Culture",
+        "confidence": 0.68,
+        "any_terms": [
+          "music",
+          "musical",
+          "painting",
+          "poetry",
+          "poem",
+          "poems",
+          "theatre",
+          "theater",
+          "cinema",
+          "movie",
+          "movies",
+          "sculpture"
+        ]
+      },
+      {
+        "category": "Food",
+        "confidence": 0.68,
+        "any_terms": [
+          "food",
+          "foods",
+          "meal",
+          "meals",
+          "cooking",
+          "edible",
+          "eat",
+          "eating",
+          "drink",
+          "drinking"
+        ]
+      },
+      {
+        "category": "Nature",
+        "confidence": 0.68,
+        "any_terms": [
+          "animal",
+          "animals",
+          "plant",
+          "plants",
+          "tree",
+          "trees",
+          "flower",
+          "flowers",
+          "river",
+          "rivers",
+          "forest",
+          "ocean",
+          "rain",
+          "snow",
+          "weather",
+          "bird",
+          "birds"
+        ]
+      },
+      {
+        "category": "Numbers & Shapes",
+        "confidence": 0.68,
+        "any_terms": [
+          "number",
+          "numbers",
+          "mathematics",
+          "geometry",
+          "algebra",
+          "arithmetic",
+          "triangle",
+          "circle"
+        ]
+      },
+      {
+        "category": "Emotions",
+        "confidence": 0.68,
+        "any_terms": [
+          "emotion",
+          "emotions",
+          "sadness",
+          "happiness",
+          "angry",
+          "afraid",
+          "sad",
+          "happy",
+          "love",
+          "fear"
+        ]
+      },
+      {
+        "category": "Travel & Movement",
+        "confidence": 0.68,
+        "any_terms": [
+          "travel",
+          "traveling",
+          "travelling",
+          "journey",
+          "trip",
+          "vehicle",
+          "vehicles",
+          "aircraft",
+          "flight",
+          "driving",
+          "walking",
+          "walk",
+          "running",
+          "foot"
+        ]
+      },
+      {
+        "category": "Time",
+        "confidence": 0.68,
+        "any_terms": [
+          "time",
+          "hour",
+          "hours",
+          "minute",
+          "minutes",
+          "year",
+          "years",
+          "month",
+          "months",
+          "yesterday",
+          "tomorrow"
+        ]
+      },
+      {
+        "category": "Communication",
+        "confidence": 0.68,
+        "any_terms": [
+          "language",
+          "languages",
+          "speak",
+          "speaking",
+          "speech",
+          "communicate",
+          "communication",
+          "message",
+          "messages",
+          "writing"
+        ]
+      },
+      {
+        "category": "Learning & Thought",
+        "confidence": 0.68,
+        "any_terms": [
+          "learn",
+          "learning",
+          "knowledge",
+          "understand",
+          "understanding",
+          "thinking",
+          "thought",
+          "idea",
+          "ideas"
+        ]
+      }
+    ],
+    "learner.adjective": [
+      {
+        "category": "Emotions",
+        "confidence": 0.74,
+        "any_terms": [
+          "happy",
+          "happiness",
+          "sad",
+          "sadness",
+          "afraid",
+          "fear",
+          "anger",
+          "angry",
+          "joyful",
+          "anxious",
+          "lonely",
+          "glad",
+          "worried"
+        ]
+      }
+    ],
+    "learner.adverb": [],
+    "noun.group": [
+      {
+        "category": "Nature",
+        "confidence": 0.84,
+        "any_terms": [
+          "fish",
+          "fishes",
+          "birds",
+          "animals",
+          "plants",
+          "species",
+          "herd",
+          "flock"
+        ]
+      },
+      {
+        "category": "Learning & Thought",
+        "confidence": 0.84,
+        "any_terms": [
+          "educational",
+          "school",
+          "university",
+          "students"
+        ]
+      },
+      {
+        "category": "Work & Money",
+        "confidence": 0.84,
+        "any_terms": [
+          "business",
+          "corporation",
+          "company",
+          "commercial",
+          "financial"
+        ]
+      },
+      {
+        "category": "Arts & Culture",
+        "confidence": 0.84,
+        "any_terms": [
+          "musicians",
+          "orchestra",
+          "theatrical"
+        ]
+      },
+      {
+        "category": "Sports",
+        "confidence": 0.84,
+        "any_terms": [
+          "athletes",
+          "players",
+          "baseball",
+          "football"
+        ]
+      }
+    ],
+    "noun.quantity": [
+      {
+        "category": "Sports",
+        "confidence": 0.84,
+        "any_terms": [
+          "tennis",
+          "baseball",
+          "football",
+          "cricket"
+        ]
+      }
+    ],
+    "noun.act": [
+      {
+        "category": "Sports",
+        "confidence": 0.84,
+        "any_terms": [
+          "tennis",
+          "baseball",
+          "football",
+          "cricket",
+          "basketball"
+        ]
+      },
+      {
+        "category": "Travel & Movement",
+        "confidence": 0.84,
+        "any_terms": [
+          "flight",
+          "aircraft",
+          "travel",
+          "walking"
+        ]
+      },
+      {
+        "category": "Arts & Culture",
+        "confidence": 0.84,
+        "any_terms": [
+          "musical",
+          "painting",
+          "theatrical"
+        ]
+      },
+      {
+        "category": "Work & Money",
+        "confidence": 0.84,
+        "any_terms": [
+          "financial",
+          "payment",
+          "purchase"
+        ]
+      },
+      {
+        "category": "Learning & Thought",
+        "confidence": 0.84,
+        "any_terms": [
+          "teaching",
+          "education"
+        ]
+      }
+    ],
+    "adj.all": [
+      {
+        "category": "Emotions",
+        "confidence": 0.74,
+        "any_terms": [
+          "happy",
+          "happiness",
+          "sad",
+          "sadness",
+          "afraid",
+          "fear",
+          "anger",
+          "angry",
+          "joyful",
+          "anxious",
+          "lonely",
+          "glad",
+          "worried"
+        ]
+      }
+    ],
+    "adj.pert": [
+      {
+        "category": "Emotions",
+        "confidence": 0.74,
+        "any_terms": [
+          "happy",
+          "happiness",
+          "sad",
+          "sadness",
+          "afraid",
+          "fear",
+          "anger",
+          "angry",
+          "joyful",
+          "anxious",
+          "lonely",
+          "glad",
+          "worried"
+        ]
+      }
+    ],
+    "adj.ppl": [
+      {
+        "category": "Emotions",
+        "confidence": 0.74,
+        "any_terms": [
+          "happy",
+          "happiness",
+          "sad",
+          "sadness",
+          "afraid",
+          "fear",
+          "anger",
+          "angry",
+          "joyful",
+          "anxious",
+          "lonely",
+          "glad",
+          "worried"
+        ]
+      }
+    ]
+  },
+  "topic_exclusions": [
+    "reward",
+    "award",
+    "prize"
+  ],
+  "quiz": {
+    "max_distractors": 4,
+    "max_rank_gap": 350
+  },
+  "examples": {
+    "tatoeba_max_per_word": 3
+  },
+  "topic_pos_fallbacks": {
+    "noun": "Ideas & Concepts",
+    "verb": "Actions",
+    "adjective": "Qualities",
+    "adverb": "Manner",
+    "other": "Grammar"
+  },
+  "topics": [
+    "Nature",
+    "Food",
+    "Science",
+    "Health",
+    "Technology",
+    "Arts & Culture",
+    "Sports",
+    "Work & Money",
+    "People",
+    "Society",
+    "Relationships",
+    "Communication",
+    "Learning & Thought",
+    "Travel & Movement",
+    "Places",
+    "Time",
+    "Numbers & Shapes",
+    "Objects & Tools",
+    "Actions",
+    "Change",
+    "Senses",
+    "Emotions",
+    "Qualities",
+    "Manner",
+    "States & Conditions",
+    "Ideas & Concepts",
+    "Grammar"
+  ],
+  "topic_domain_map": {
+    "computer science": "Technology",
+    "computing": "Technology",
+    "computer": "Technology",
+    "programming": "Technology",
+    "computer programming": "Technology",
+    "electronics": "Technology",
+    "telecommunication": "Technology",
+    "telecommunications": "Technology",
+    "engineering": "Technology",
+    "art": "Arts & Culture",
+    "artistic creation": "Arts & Culture",
+    "music": "Arts & Culture",
+    "theater": "Arts & Culture",
+    "theatre": "Arts & Culture",
+    "dramatic art": "Arts & Culture",
+    "poetry": "Arts & Culture",
+    "literature": "Arts & Culture",
+    "film": "Arts & Culture",
+    "movie": "Arts & Culture",
+    "photography": "Arts & Culture",
+    "painting": "Arts & Culture",
+    "dance": "Arts & Culture",
+    "dancing": "Arts & Culture",
+    "architecture": "Arts & Culture",
+    "athletics": "Sports",
+    "sport": "Sports",
+    "baseball": "Sports",
+    "baseball game": "Sports",
+    "football": "Sports",
+    "football game": "Sports",
+    "basketball": "Sports",
+    "golf": "Sports",
+    "tennis": "Sports",
+    "cricket": "Sports",
+    "soccer": "Sports",
+    "hockey": "Sports",
+    "boxing": "Sports",
+    "wrestling": "Sports",
+    "chess": "Sports",
+    "card game": "Sports",
+    "medical specialty": "Health",
+    "medicine": "Health",
+    "practice of medicine": "Health",
+    "anatomy": "Health",
+    "physiology": "Health",
+    "psychiatry": "Health",
+    "surgery": "Health",
+    "pathology": "Health",
+    "dentistry": "Health",
+    "pharmacology": "Health",
+    "psychotherapy": "Health",
+    "physics": "Science",
+    "natural philosophy": "Science",
+    "chemistry": "Science",
+    "chemical science": "Science",
+    "biology": "Science",
+    "biological science": "Science",
+    "genetics": "Science",
+    "genetic science": "Science",
+    "astronomy": "Science",
+    "geology": "Science",
+    "ecology": "Science",
+    "meteorology": "Science",
+    "botany": "Nature",
+    "phytology": "Nature",
+    "zoology": "Nature",
+    "zoological science": "Nature",
+    "agriculture": "Nature",
+    "farming": "Nature",
+    "animal": "Nature",
+    "fauna": "Nature",
+    "flora": "Nature",
+    "plant": "Nature",
+    "plant life": "Nature",
+    "cookery": "Food",
+    "cooking": "Food",
+    "gastronomy": "Food",
+    "math": "Numbers & Shapes",
+    "mathematics": "Numbers & Shapes",
+    "maths": "Numbers & Shapes",
+    "statistics": "Numbers & Shapes",
+    "arithmetic": "Numbers & Shapes",
+    "geometry": "Numbers & Shapes",
+    "algebra": "Numbers & Shapes",
+    "commerce": "Work & Money",
+    "commercialism": "Work & Money",
+    "business": "Work & Money",
+    "business enterprise": "Work & Money",
+    "economics": "Work & Money",
+    "economic science": "Work & Money",
+    "finance": "Work & Money",
+    "banking": "Work & Money",
+    "tax": "Work & Money",
+    "taxation": "Work & Money",
+    "law": "Society",
+    "jurisprudence": "Society",
+    "government": "Society",
+    "politics": "Society",
+    "political science": "Society",
+    "military": "Society",
+    "armed forces": "Society",
+    "religion": "Society",
+    "religious belief": "Society",
+    "faith": "Society",
+    "islam": "Society",
+    "hinduism": "Society",
+    "judaism": "Society",
+    "christianity": "Society",
+    "crime": "Society",
+    "navigation": "Travel & Movement",
+    "sailing": "Travel & Movement",
+    "seafaring": "Travel & Movement",
+    "aviation": "Travel & Movement",
+    "air travel": "Travel & Movement",
+    "car": "Travel & Movement",
+    "automobile": "Travel & Movement",
+    "airplane": "Travel & Movement",
+    "aeroplane": "Travel & Movement",
+    "linguistics": "Communication",
+    "grammar": "Grammar",
+    "writing": "Communication",
+    "authorship": "Communication",
+    "printing": "Communication",
+    "psychology": "Learning & Thought",
+    "psychological science": "Learning & Thought",
+    "philosophy": "Learning & Thought",
+    "logic": "Learning & Thought",
+    "education": "Learning & Thought"
+  }
+}

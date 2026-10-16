@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "installation": "bundled-gzip-verified-atomic-copy",
+  "editions": {
+    "core": {
+      "asset": "core.dbz",
+      "entries": 2830,
+      "compressed_bytes": 14616675,
+      "compressed_sha256": "ba68af91a5ef56aa02a4ad705486450a6b613ecd494864542bc4ebaa47e1dbaa",
+      "database_bytes": 40861696,
+      "database_sha256": "23e85e65d514209a94ceb0cdc7001e95a40377f75af871f999ce5e29b0ee38a2"
+    },
+    "full": {
+      "asset": "full.dbz",
+      "entries": 115130,
+      "compressed_bytes": 126292011,
+      "compressed_sha256": "b4e4d6fb6da22e46eee314e945362aeaae288f8950318984834e052847b4271b",
+      "database_bytes": 361332736,
+      "database_sha256": "b0a1089333435af0ba567facb5e595af728f54429c9e745e030241830b3d4a9d"
+    }
+  },
+  "topic_revision": "4",
+  "topics": [
+    "Nature",
+    "Food",
+    "Science",
+    "Health",
+    "Technology",
+    "Arts & Culture",
+    "Sports",
+    "Work & Money",
+    "People",
+    "Society",
+    "Relationships",
+    "Communication",
+    "Learning & Thought",
+    "Travel & Movement",
+    "Places",
+    "Time",
+    "Numbers & Shapes",
+    "Objects & Tools",
+    "Actions",
+    "Change",
+    "Senses",
+    "Emotions",
+    "Qualities",
+    "Manner",
+    "States & Conditions",
+    "Ideas & Concepts",
+    "Grammar"
+  ]
+}
