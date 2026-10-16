@@ -83,6 +83,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MainActivity extends android.app.Activity {
+    private static final String OPEN_TODAY = "com.lafz.app.OPEN_TODAY";
     private static final int REQUEST_NOTIFICATIONS = 702;
     private static final int FEED_BATCH_SIZE = 7;
     private static final int MAX_FEED_PAGES = 12;
@@ -147,6 +148,34 @@ public class MainActivity extends android.app.Activity {
         @Override public void onReceive(Context context, Intent intent) { refreshDay(); }
     };
 
+    static Intent todayIntent(Context context) {
+        return new Intent(context, MainActivity.class)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                .putExtra(OPEN_TODAY, true);
+    }
+
+    private void openToday() {
+        currentTab = Tab.FEED;
+        exploreMode = false;
+        if (focusAnimator != null) focusAnimator.cancel();
+        focusMode = false;
+        focusAmount = 0;
+    }
+
+    @Override protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        if (intent.getBooleanExtra(OPEN_TODAY, false)) {
+            while (activeSheet != null) {
+                activeSheet.surface.animate().cancel();
+                activeSheet.closing = true;
+                activeSheet.finishDismiss();
+            }
+            openToday();
+            render();
+        }
+    }
+
     private void refreshDay() {
         int today = LafzPrefs.today();
         if (displayedDay != today) {
@@ -201,6 +230,7 @@ public class MainActivity extends android.app.Activity {
         });
         palette = palette();
         if (savedInstanceState != null) restorePractice(savedInstanceState);
+        else if (getIntent().getBooleanExtra(OPEN_TODAY, false)) openToday();
         launching = savedInstanceState == null;
         if (launching) showLaunchScreen(); else render();
         sourceListener = new LafzRepository.Listener() {
@@ -1781,6 +1811,7 @@ public class MainActivity extends android.app.Activity {
     @Override protected void onSaveInstanceState(Bundle state) {
         captureQuizDraft();
         state.putString("tab", currentTab.name());
+        state.putBoolean("exploreMode", exploreMode);
         state.putSerializable("review", reviewSession);
         state.putBoolean("revealed", reviewRevealed);
         state.putString("quizSet", quizSet == null ? "" : quizSet.name());
@@ -1797,6 +1828,7 @@ public class MainActivity extends android.app.Activity {
     @SuppressWarnings("unchecked")
     private void restorePractice(Bundle state) {
         currentTab = Tab.valueOf(state.getString("tab", "FEED"));
+        exploreMode = state.getBoolean("exploreMode", true);
         reviewSession = (ReviewSession) state.getSerializable("review");
         reviewRevealed = state.getBoolean("revealed");
         String set = state.getString("quizSet", ""); quizSet = set.isEmpty() ? null : QuizSet.valueOf(set);

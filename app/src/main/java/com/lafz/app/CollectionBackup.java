@@ -21,7 +21,9 @@ final class CollectionBackup {
 
     static void importJson(Context context, String text) throws Exception {
         JSONObject root = new JSONObject(text);
-        if (!"lafz-collection".equals(root.getString("format")) || root.getInt("version") != 1)
+        Object version = root.get("version");
+        if (!"lafz-collection".equals(root.getString("format")) ||
+                !(version instanceof Integer || version instanceof Long) || ((Number) version).longValue() != 1L)
             throw new IllegalArgumentException("Unsupported Lafz backup");
         JSONObject data = root.getJSONObject("data");
         // Validate the entire document before applying any changes.

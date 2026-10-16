@@ -51,7 +51,7 @@ public class WordWidgetProvider extends AppWidgetProvider {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.word_widget);
         views.setTextViewText(R.id.widget_word, word == null ? "Open Lafz" : word.spelling);
         views.setTextViewText(R.id.widget_meaning, word == null ? "Loading the free dictionary" : word.meaning);
-        Intent open = new Intent(context, MainActivity.class);
+        Intent open = MainActivity.todayIntent(context);
         PendingIntent pending = PendingIntent.getActivity(context, id, open,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         views.setOnClickPendingIntent(R.id.widget_root, pending);

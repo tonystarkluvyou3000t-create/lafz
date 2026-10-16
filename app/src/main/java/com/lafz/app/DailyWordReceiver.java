@@ -11,7 +11,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 
-import java.util.Calendar;
+import java.time.Instant;
+import java.time.ZoneId;
 import java.util.Set;
 
 public class DailyWordReceiver extends BroadcastReceiver {
@@ -20,6 +21,7 @@ public class DailyWordReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        schedule(context);
         if (!LafzPrefs.get(context).getBoolean("daily_enabled", false)) return;
         if (Build.VERSION.SDK_INT >= 33 && context.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) return;
 
@@ -30,8 +32,7 @@ public class DailyWordReceiver extends BroadcastReceiver {
                 Set<String> categories = LafzPrefs.categories(appContext);
                 Word word = LafzRepository.get(appContext).daily(categories, LafzPrefs.today());
                 if (word == null) return;
-                Intent open = new Intent(appContext, MainActivity.class);
-                open.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Intent open = MainActivity.todayIntent(appContext);
                 PendingIntent content = PendingIntent.getActivity(appContext, 1604, open,
                         PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
                 Notification notification = new Notification.Builder(appContext, CHANNEL_ID)
@@ -51,6 +52,14 @@ public class DailyWordReceiver extends BroadcastReceiver {
         });
     }
 
+    static long nextTrigger(long now, ZoneId zone, int minutes) {
+        java.time.ZonedDateTime localNow = Instant.ofEpochMilli(now).atZone(zone);
+        java.time.LocalTime time = java.time.LocalTime.of(minutes / 60, minutes % 60);
+        java.time.ZonedDateTime trigger = localNow.toLocalDate().atTime(time).atZone(zone);
+        if (!trigger.isAfter(localNow)) trigger = localNow.toLocalDate().plusDays(1).atTime(time).atZone(zone);
+        return trigger.toInstant().toEpochMilli();
+    }
+
     static void schedule(Context context) {
         AlarmManager manager = context.getSystemService(AlarmManager.class);
         if (manager == null) return;
@@ -66,12 +75,8 @@ public class DailyWordReceiver extends BroadcastReceiver {
             return;
         }
         int minutes = LafzPrefs.get(context).getInt("daily_time", 9 * 60);
-        Calendar trigger = Calendar.getInstance();
-        trigger.set(Calendar.HOUR_OF_DAY, minutes / 60);
-        trigger.set(Calendar.MINUTE, minutes % 60);
-        trigger.set(Calendar.SECOND, 0);
-        trigger.set(Calendar.MILLISECOND, 0);
-        if (!trigger.after(Calendar.getInstance())) trigger.add(Calendar.DATE, 1);
-        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, trigger.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pending);
+        // Recalculate each local date so the chosen time survives DST changes.
+        manager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
+                nextTrigger(System.currentTimeMillis(), ZoneId.systemDefault(), minutes), pending);
     }
 }

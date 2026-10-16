@@ -1,0 +1,67 @@
+Lafz bug-fix audit - 16 October 2026
+Branch: dev. Baseline: c9e4207. This folder initially had no Git repository.
+
+BEFORE - focused regressions
+INSTRUMENTATION_RESULT: failures=Malformed version 1.5 must be rejected without changing the collection
+Malformed version "1" must be rejected without changing the collection
+Malformed version 4294967297 must be rejected without changing the collection
+Today mode survives activity saved-state restoration
+Widget opens Today instead of an unrelated Explore word
+INSTRUMENTATION_RESULT: regressions=2 passed; 5 failed
+INSTRUMENTATION_CODE: 0
+
+BEFORE - existing Android suite
+FAIL: java.lang.AssertionError: hidden progress state excludes entries from discovery
+	at com.lafz.app.LearningInstrumentation.check(LearningInstrumentation.java:405)
+	at com.lafz.app.LearningInstrumentation.onStart(LearningInstrumentation.java:94)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2597)
+
+
+AFTER - focused regressions
+INSTRUMENTATION_RESULT: failures=
+INSTRUMENTATION_RESULT: regressions=16 passed; 0 failed
+INSTRUMENTATION_CODE: -1
+
+AFTER - existing Android suite
+PASS: practice tab and Android saved-state restoration, validated backup merge, Undo schedule preservation, 200% text at 360x640, daily rollover on resume and while open, widget content, local midnight/DST scheduling, packaged Core/Full SQLite integrity, real entry lookup, source definitions, themes, ranked discovery, and independent progress.
+DEVICE_METRICS: core_install_ms=50, full_install_ms=38, repeated_launch_and_feed_ms=1007, full_apple_search_us=330469, pss_kb=96511, core_database_bytes=40861696, full_database_bytes=361332736
+
+
+PYTHON
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.916s
+
+OK
+
+CONTENT AUDIT
+PASS fixtures: no fallback across meanings or sources; part of speech follows the selected definition
+PASS core topics: 2,830 cards classified using their displayed meaning; Android topics and bundle integrity constants match
+PASS everyday meaning anchors and restricted-usage demotion
+PASS core: 2,830 entries audited; 2,409 matched examples; 421 omit an unavailable same-source example; 2,830 complete cards checked
+member: A member is someone belonging to a group or organization. | I am a member of Simple English Wikipedia.
+PASS full topics: 115,130 cards classified using their displayed meaning; Android topics and bundle integrity constants match
+PASS everyday meaning anchors and restricted-usage demotion
+PASS full: 115,130 entries audited; 19,237 matched examples; 95,893 omit an unavailable same-source example; 500 complete cards checked
+member: A member is someone belonging to a group or organization. | I am a member of Simple English Wikipedia.
+
+BUILD: assembleDebug + assembleDebugAndroidTest + lintDebug succeeded.
+LINT: 0 errors, 28 warnings.
+
+RERUN (PowerShell, project root; Android SDK/JDK and emulator required)
+.\gradlew.bat assembleDebug lintDebug assembleDebugAndroidTest
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+adb install -r app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+adb shell am instrument -w com.lafz.app.test/com.lafz.app.LearningInstrumentation
+.\gradlew.bat assembleDebugAndroidTest '-PtestRunner=com.lafz.app.BugRegressionInstrumentation'
+adb install -r app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+adb shell am instrument -w com.lafz.app.test/com.lafz.app.BugRegressionInstrumentation
+python -m unittest discover -s tools/lafz_lexicon/tests -t tools -v
+python tools/verify_display_content.py
+javac -encoding UTF-8 -d build/bug-audit app/src/main/java/com/lafz/app/Word.java app/src/main/java/com/lafz/app/LearningContent.java app/src/main/java/com/lafz/app/QuizEngine.java app/src/main/java/com/lafz/app/ReviewSession.java tools/LearningLogicTest.java
+java -cp build/bug-audit com.lafz.app.LearningLogicTest
+
+LIMITS: No physical device run or real-time alarm-delivery timing test. DST calculations cover spring/fall transitions, a missing local time and an overlapping local time.
+
+JVM learning checks: passed (quiz ambiguity, fallback, review queue, serialization).
+HTML verification: desktop 1200px and mobile 390px render without horizontal overflow; evidence link resolves; five fix rows present.

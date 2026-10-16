@@ -90,8 +90,13 @@ public final class LearningInstrumentation extends Instrumentation {
             if (everyday.size() > 1) {
                 Word hidden = everyday.get(1);
                 repository.hide(hidden.id);
+                check(repository.hiddenIds().contains(hidden.id), "hide is visible before selecting the next batch");
                 List<Word> afterHide = repository.nextWords(Collections.emptySet(), 80, excluded, LearningContent.EVERYDAY);
                 for (Word word : afterHide) check(!word.id.equals(hidden.id), "hidden progress state excludes entries from discovery");
+                repository.restoreHidden(hidden.id);
+                check(!repository.hiddenIds().contains(hidden.id), "restore is visible before selecting the next batch");
+                for (int i = 0; i < 20; i++) { repository.hide(hidden.id); repository.restoreHidden(hidden.id); }
+                check(!repository.hiddenIds().contains(hidden.id), "rapid hide and restore retain the last action");
             }
 
             preferences(context);

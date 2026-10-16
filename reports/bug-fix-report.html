@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Lafz · Bug fix report</title>
+  <style>
+    :root { --paper:#f3eef9; --card:#fcfaff; --plum:#44234f; --ink:#33283e; --muted:#74667f; --lilac:#ba9dd7; --line:#ded2e8; --green:#46715f; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.6 "Segoe UI",Arial,sans-serif; }
+    main { max-width:1040px; margin:auto; padding:42px 48px 30px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding-bottom:20px; border-bottom:1px solid var(--line); }
+    .brand { font:bold 37px/.9 Georgia,serif; letter-spacing:-3px; color:var(--plum); }
+    .meta { font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); text-align:right; }
+    .intro { display:grid; grid-template-columns:1fr 230px; gap:40px; align-items:center; padding:40px 0 32px; }
+    .eyebrow { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.17em; color:var(--muted); }
+    h1 { margin:10px 0 15px; color:var(--plum); font:normal 64px/.98 Georgia,serif; letter-spacing:-2.5px; }
+    h1 em { font-weight:normal; }
+    .definition { margin:0; color:var(--muted); font-size:14px; }
+    .definition strong { color:var(--ink); font-weight:600; }
+    .verdict { position:relative; padding:26px 24px; border-radius:4px 28px 28px 28px; background:var(--plum); color:var(--paper); }
+    .verdict::before { content:"“"; position:absolute; top:-25px; right:15px; font:110px/1 Georgia,serif; color:var(--lilac); }
+    .verdict small { font-size:10px; text-transform:uppercase; letter-spacing:.16em; color:#dbc9eb; }
+    .verdict p { margin:12px 0 18px; font:27px/1.18 Georgia,serif; }
+    .branch { display:inline-flex; align-items:center; gap:8px; border:1px solid #795686; border-radius:20px; padding:3px 10px; font:12px/1.6 Consolas,monospace; }
+    .branch::before { content:""; width:6px; height:6px; background:#c8dabf; border-radius:50%; }
+    section { background:var(--card); border:1px solid var(--line); border-radius:22px; overflow:hidden; }
+    .section-head { display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid var(--line); gap:16px; }
+    h2 { font-size:13px; margin:0; font-weight:600; }
+    .status { color:var(--green); font-size:11px; font-weight:600; }
+    table { width:100%; border-collapse:collapse; }
+    th { text-align:left; padding:13px 24px 7px; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.12em; font-weight:500; }
+    td { padding:13px 24px; border-bottom:1px solid var(--line); font-size:13px; vertical-align:top; }
+    tbody tr:last-child td { border-bottom:0; padding-bottom:21px; }
+    td:first-child { width:185px; font-weight:600; color:var(--plum); }
+    td:last-child { color:var(--muted); }
+    .validation { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 12px; }
+    .validation span { padding:5px 11px; border:1px solid var(--line); border-radius:20px; color:var(--green); font-size:11px; }
+    .note { color:var(--muted); font-size:11px; margin:8px 0; }
+    footer { display:flex; gap:20px; justify-content:space-between; border-top:1px solid var(--line); margin-top:22px; padding-top:14px; font-size:11px; color:var(--muted); }
+    a { color:var(--plum); text-underline-offset:3px; }
+    a:focus-visible { outline:2px solid var(--plum); outline-offset:4px; }
+    @media(max-width:700px) { main { padding:24px 20px; } .intro { grid-template-columns:1fr; gap:22px; padding-top:30px; } h1 { font-size:52px; } .verdict { padding:18px 22px; } .verdict p { display:inline; margin-right:18px; font-size:23px; } .verdict small { display:block; margin-bottom:8px; } .verdict::before { top:-17px; font-size:80px; } td,th { padding-left:14px; padding-right:14px; } td:first-child { width:112px; } .section-head { padding:16px 14px; } footer { flex-direction:column; gap:6px; } }
+    @media print { body { background:white; } main { padding:12px; } .verdict { print-color-adjust:exact; } section { break-inside:avoid; } }
+  </style>
+</head>
+<body>
+<main>
+  <header><div class="brand" aria-label="Lafz">lafz.</div><div class="meta">Project health / fix report<br><time datetime="2026-10-16">16 October 2026</time></div></header>
+  <div class="intro">
+    <div><div class="eyebrow">A calmer learning experience</div><h1>A little more<br><em>dependable.</em></h1><p class="definition"><strong>Five bugs fixed.</strong> Small repairs to daily words,<br>collection safety, and discovery.</p></div>
+    <aside class="verdict"><small>Review complete</small><p>Fixed.<br>Tested.<br>Ready to review.</p><span class="branch">dev</span></aside>
+  </div>
+  <section aria-labelledby="fixes">
+    <div class="section-head"><h2 id="fixes">What changed</h2><span class="status">5 fixes verified</span></div>
+    <table>
+      <thead><tr><th scope="col">Area</th><th scope="col">Bug → result</th></tr></thead>
+      <tbody>
+        <tr><td>Hidden words</td><td>Hide/restore raced with discovery. Changes now finish before the next selection.</td></tr>
+        <tr><td>Daily entry</td><td>Widget and reminder taps opened Explore. Both now route to Today.</td></tr>
+        <tr><td>Screen restoration</td><td>Today reverted to Explore after recreation. The selected mode now survives.</td></tr>
+        <tr><td>Backup imports</td><td>Malformed version numbers slipped through. Invalid versions now leave the collection untouched.</td></tr>
+        <tr><td>Reminder timing</td><td>A fixed 24-hour repeat drifted across daylight saving. Each reminder now uses the next local date.</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <div class="validation" aria-label="Validation results"><span>✓ 16 focused checks</span><span>✓ Android device suite</span><span>✓ 20 Python tests</span><span>✓ Core + Full content audits</span><span>✓ Build + lint</span></div>
+  <p class="note">Device checks: Android 16 emulator. Lint: 0 errors; 28 warnings remain. Android may delay reminder delivery.</p>
+  <footer><span>Git initialized here with a baseline on <strong>dev</strong>; no main branch existed.</span><a href="bug-fix-evidence.txt">Test evidence &amp; rerun commands ↗</a></footer>
+</main>
+</body>
+</html>

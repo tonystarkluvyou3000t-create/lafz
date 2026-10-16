@@ -16,7 +16,7 @@ android {
         targetSdk 35
         versionCode 1
         versionName '1.0'
-        testInstrumentationRunner 'com.lafz.app.LearningInstrumentation'
+        testInstrumentationRunner providers.gradleProperty('testRunner').getOrElse('com.lafz.app.LearningInstrumentation')
     }
 
     compileOptions {

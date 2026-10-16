@@ -647,10 +647,11 @@ final class LafzRepository {
         return result;
     }
 
-    void hide(String id) { executeBackground(() -> progressStore.hide(id)); }
+    // Commit before callers select another batch; concurrent worker tasks can run out of order.
+    void hide(String id) { progressStore.hide(id); }
 
     Set<String> hiddenIds() { return progressStore.idsWithState("hidden"); }
-    void restoreHidden(String id) { executeBackground(() -> progressStore.restoreHidden(id)); }
+    void restoreHidden(String id) { progressStore.restoreHidden(id); }
 
     private List<Word> readWords(Cursor cursor) {
         List<Word> words = new ArrayList<>();
