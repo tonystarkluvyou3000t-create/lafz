@@ -436,10 +436,10 @@ public class MainActivity extends android.app.Activity {
         LinearLayout row = new LinearLayout(this);
         row.setPadding(dp(24), 0, dp(24), 0);
         row.setGravity(Gravity.CENTER_VERTICAL);
-        TextView brand = label("lafz.", 32, palette.ink, Typeface.create("serif", Typeface.BOLD));
+        TextView brand = label("lafz", 35, palette.ink, Typeface.create("serif", Typeface.BOLD_ITALIC));
         brand.setLetterSpacing(-.055f);
         row.addView(brand, new LinearLayout.LayoutParams(0, -2, 1));
-        TextView note = eyebrow("A WORLD IN A WORD");
+        TextView note = eyebrow("YOUR POCKET LEXICON");
         row.addView(note, wrapMargin(0, 0, 8, 0));
         row.addView(searchButton());
         return row;
@@ -605,10 +605,10 @@ public class MainActivity extends android.app.Activity {
         exploreTop = new LinearLayout(this);
         exploreTop.setOrientation(LinearLayout.VERTICAL);
         exploreTop.setBackgroundColor(palette.background);
-        exploreTop.setPadding(dp(26), dp(10), dp(26), dp(10));
+        exploreTop.setPadding(dp(22), dp(12), dp(22), dp(10));
         LinearLayout masthead = new LinearLayout(this);
         masthead.setGravity(Gravity.CENTER_VERTICAL);
-        TextView brand = label("lafz.", 34, palette.ink, Typeface.create("serif", Typeface.BOLD));
+        TextView brand = label("lafz", 38, palette.ink, Typeface.create("serif", Typeface.BOLD_ITALIC));
         brand.setLetterSpacing(-.055f);
         masthead.addView(brand, new LinearLayout.LayoutParams(0, -2, 1));
         LinearLayout.LayoutParams searchParams = new LinearLayout.LayoutParams(dp(46), dp(46));
@@ -624,10 +624,10 @@ public class MainActivity extends android.app.Activity {
         exploreTop.addView(masthead, new LinearLayout.LayoutParams(-1, dp(54)));
         LinearLayout modes = new LinearLayout(this);
         modes.setGravity(Gravity.CENTER_VERTICAL);
-        TextView explore = label("Explore", 14, palette.selectedText, Typeface.create("sans-serif-medium", Typeface.NORMAL));
+        TextView explore = label("Discover", 13, palette.selectedText, Typeface.create("sans-serif-medium", Typeface.NORMAL));
         explore.setGravity(Gravity.CENTER);
-        explore.setBackground(shape(palette.selected, 20, palette.selected, 0));
-        modes.addView(explore, new LinearLayout.LayoutParams(dp(100), dp(38)));
+        explore.setBackground(shape(palette.selected, 12, palette.selected, 0));
+        modes.addView(explore, new LinearLayout.LayoutParams(dp(116), dp(38)));
         TextView today = label("Today", 14, palette.muted, Typeface.create("sans-serif-medium", Typeface.NORMAL));
         today.setGravity(Gravity.CENTER);
         today.setOnClickListener(v -> { exploreMode = false; render(); });
@@ -653,7 +653,8 @@ public class MainActivity extends android.app.Activity {
         } else snapPager.addPage(makeSourceLoadingPage());
         exploreBottom = new LinearLayout(this);
         exploreBottom.setOrientation(LinearLayout.VERTICAL);
-        TextView hint = label("Swipe up for another word  ↑", 11, palette.muted, Typeface.create("sans-serif", Typeface.NORMAL));
+        TextView hint = label("↑  TURN THE PAGE  ·  FIND SOMETHING NEW", 10, palette.muted, Typeface.create("sans-serif-medium", Typeface.NORMAL));
+        hint.setLetterSpacing(.11f);
         hint.setGravity(Gravity.CENTER);
         exploreBottom.addView(hint, new LinearLayout.LayoutParams(-1, dp(34)));
         exploreBottom.addView(makeBottomNav(), new LinearLayout.LayoutParams(-1, dp(76)));
@@ -817,30 +818,30 @@ public class MainActivity extends android.app.Activity {
         copy.setTag("word-copy");
         copy.setOrientation(LinearLayout.VERTICAL);
         copy.setGravity(Gravity.CENTER_VERTICAL);
-        copy.setPadding(dp(24), dp(120), dp(78), dp(116));
+        copy.setPadding(dp(28), dp(120), dp(78), dp(116));
 
         LinearLayout topicRow = new LinearLayout(this);
         page.topic = topicRow;
         topicRow.setGravity(Gravity.CENTER_VERTICAL);
         View dot = new View(this);
         dot.setBackground(shape(categoryColor(word.category), 4, 0, 0));
-        topicRow.addView(dot, new LinearLayout.LayoutParams(dp(6), dp(6)));
+        topicRow.addView(dot, new LinearLayout.LayoutParams(dp(9), dp(9)));
         TextView topic = eyebrow(word.category.toUpperCase(Locale.getDefault()));
         topicRow.addView(topic, wrapMargin(8, 0, 0, 0));
-        copy.addView(topicRow, margin(0, 0, 0, 24));
-        TextView spelling = label(word.spelling, 56, palette.ink, Typeface.create("serif", Typeface.NORMAL));
+        copy.addView(topicRow, margin(0, 0, 0, 30));
+        TextView spelling = label(word.spelling, 62, palette.ink, Typeface.create("serif", Typeface.BOLD));
         spelling.setTag("word-title");
         spelling.setLetterSpacing(-.05f);
         spelling.setMaxLines(word.spelling.contains(" ") ? 2 : 1);
         spelling.setHyphenationFrequency(Layout.HYPHENATION_FREQUENCY_NONE);
-        spelling.setAutoSizeTextTypeUniformWithConfiguration(22, 56, 1, android.util.TypedValue.COMPLEX_UNIT_SP);
+        spelling.setAutoSizeTextTypeUniformWithConfiguration(22, 62, 1, android.util.TypedValue.COMPLEX_UNIT_SP);
         spelling.setOnClickListener(v -> showWordDetails(word));
         copy.addView(spelling, margin(0, 0, 0, 14));
 
         TextView part = label(word.partOfSpeech + (word.pronunciationDisplay().isEmpty() ? "" : "  " + word.pronunciationDisplay()),
                 13, palette.muted, Typeface.create("sans-serif", Typeface.NORMAL));
-        copy.addView(part, margin(0, 0, 0, 28));
-        TextView meaning = label(word.meaning, 21, palette.ink, Typeface.create("sans-serif", Typeface.NORMAL));
+        copy.addView(part, margin(0, 0, 0, 32));
+        TextView meaning = label(word.meaning, 21, palette.ink, Typeface.create("sans-serif-light", Typeface.NORMAL));
         meaning.setTag("word-meaning");
         meaning.setLineSpacing(dp(4), 1.05f);
         meaning.setMaxLines(5);
@@ -856,10 +857,11 @@ public class MainActivity extends android.app.Activity {
             example.setMaxLines(3);
             example.setEllipsize(android.text.TextUtils.TruncateAt.END);
             example.setPadding(dp(16), dp(14), dp(16), dp(14));
-            example.setBackground(shape(palette.soft, 16, 0, 0));
+            example.setBackground(shape(palette.soft, 8, 0, 0));
             copy.addView(example, margin(0, 0, 0, 12));
         }
-        TextView details = label("Meanings & examples  ↗", 13, palette.selected, Typeface.create("sans-serif-medium", Typeface.NORMAL));
+        TextView details = label("EXPLORE THIS WORD  ↗", 12, palette.selected, Typeface.create("sans-serif-medium", Typeface.NORMAL));
+        details.setLetterSpacing(.08f);
         page.details = details;
         details.setGravity(Gravity.CENTER_VERTICAL);
         details.setOnClickListener(v -> showWordDetails(word));
@@ -870,7 +872,7 @@ public class MainActivity extends android.app.Activity {
         paper.addOnLayoutChangeListener((v, l, t, r, b, ol, ot, or, ob) -> {
             float fontScale = getResources().getConfiguration().fontScale;
             boolean compact = (b - t - dp(305)) / fontScale < dp(390);
-            copy.setPadding(dp(24), dp(compact ? 110 : 140), dp(78), dp(compact ? 105 : 135));
+            copy.setPadding(dp(28), dp(compact ? 110 : 140), dp(78), dp(compact ? 105 : 135));
             topicRow.setVisibility(compact && fontScale > 1.3f ? View.GONE : View.VISIBLE);
             meaning.setMaxLines(compact ? (fontScale > 1.3f ? 2 : 3) : 5);
             details.setText("Read full meaning  ↗");
@@ -2025,7 +2027,7 @@ public class MainActivity extends android.app.Activity {
         FrameLayout container = new FrameLayout(this);
         LinearLayout nav = new LinearLayout(this);
         nav.setGravity(Gravity.CENTER);
-        nav.setBackground(shape(palette.card, 26, palette.line, 1));
+        nav.setBackground(shape(palette.ink, 18, palette.ink, 0));
         nav.setPadding(dp(12), dp(6), dp(12), dp(8));
         nav.addView(navChoice("explore", "Discover", Tab.FEED), new LinearLayout.LayoutParams(0, -1, 1));
         nav.addView(navChoice("library", "Saved", Tab.LIBRARY), new LinearLayout.LayoutParams(0, -1, 1));
@@ -2043,11 +2045,11 @@ public class MainActivity extends android.app.Activity {
         item.setGravity(Gravity.CENTER);
         boolean selected = currentTab == tab;
         FrameLayout capsule = new FrameLayout(this);
-        if (selected) capsule.setBackground(shape(palette.selected, 16, palette.selected, 0));
-        IconView glyph = new IconView(this, icon, selected ? palette.selectedText : palette.muted);
+        if (selected) capsule.setBackground(shape(palette.selected, 10, palette.selected, 0));
+        IconView glyph = new IconView(this, icon, selected ? 0xFFFFFFFF : 0xFFB9B3A9);
         capsule.addView(glyph, new FrameLayout.LayoutParams(dp(24), dp(24), Gravity.CENTER));
         item.addView(capsule, new LinearLayout.LayoutParams(dp(56), dp(32)));
-        TextView name = label(title, 10, selected ? palette.selected : palette.muted, Typeface.create("sans-serif-medium", Typeface.NORMAL));
+        TextView name = label(title, 10, selected ? 0xFFFFFFFF : 0xFFB9B3A9, Typeface.create("sans-serif-medium", Typeface.NORMAL));
         name.setGravity(Gravity.CENTER);
         item.addView(name, wrapMargin(0, 5, 0, 0));
         item.setSelected(selected);
@@ -2419,7 +2421,7 @@ public class MainActivity extends android.app.Activity {
         LinearLayout card = new LinearLayout(this);
         card.setOrientation(LinearLayout.VERTICAL);
         card.setPadding(dp(20), dp(21), dp(20), dp(20));
-        card.setBackground(shape(palette.card, 22, palette.line, 1));
+        card.setBackground(shape(palette.card, 12, palette.line, 1));
         card.addView(label(title, 21, palette.ink, Typeface.create("serif", Typeface.NORMAL)));
         card.addView(label(description, 14, palette.muted, Typeface.create("sans-serif", Typeface.NORMAL)), margin(0, 7, 0, 16));
         card.addView(button(action, true, onClick));
@@ -2430,7 +2432,7 @@ public class MainActivity extends android.app.Activity {
         LinearLayout card = new LinearLayout(this);
         card.setOrientation(LinearLayout.VERTICAL);
         card.setPadding(dp(22), dp(22), dp(22), dp(22));
-        card.setBackground(shape(palette.card, 24, palette.line, 0));
+        card.setBackground(shape(palette.card, 14, palette.line, 1));
         return card;
     }
 
@@ -2440,7 +2442,7 @@ public class MainActivity extends android.app.Activity {
         button.setGravity(Gravity.CENTER);
         button.setPadding(dp(14), dp(12), dp(14), dp(12));
         button.setMinHeight(dp(48));
-        button.setBackground(shape(primary ? palette.selected : palette.soft, 16,
+        button.setBackground(shape(primary ? palette.selected : palette.soft, 12,
                 primary ? palette.selected : palette.soft, 0));
         button.setOnClickListener(v -> action.run());
         button.setLayoutParams(new LinearLayout.LayoutParams(-1, dp(48)));
@@ -2517,15 +2519,15 @@ public class MainActivity extends android.app.Activity {
     private Palette palette() {
         boolean dark = LafzPrefs.get(this).getBoolean("dark_theme", false);
         return dark ? new Palette(true,
-                0xFF201B2D, 0xFF2C253B, 0xFF352C46, 0xFF493C5A, 0xFFF4EDFF,
-                0xFFB9ACC9, 0xFFE8B497, 0xFFD1C3E2, 0xFFC9B4EF, 0xFF291D3D,
-                0xFFC9B4EF, 0xFF291D3D, 0xFF342B45, 0xFFBFA8EC, 0xFFA8CBAE,
-                0xFFA9C7EA, 0xFFE2B99B, 0xFFE4ABC7)
+                0xFF171B19, 0xFF252B27, 0xFF333B35, 0xFF404941, 0xFFF5F1E7,
+                0xFFB3BAAF, 0xFFF0A86B, 0xFFD4D2C4, 0xFFFF754D, 0xFFFFFFFF,
+                0xFFFF754D, 0xFFFFFFFF, 0xFF303A33, 0xFFF0A86B, 0xFF8BC8A6,
+                0xFF91B8DC, 0xFFF0A86B, 0xFFDF9FAD)
                 : new Palette(false,
-                0xFFF0EBF8, 0xFFFCFAFF, 0xFFE8DFF2, 0xFFDED4E9, 0xFF302340,
-                0xFF786887, 0xFF986344, 0xFF695675, 0xFF654580, 0xFFFCFAFF,
-                0xFF654580, 0xFFFCFAFF, 0xFFE7DFF0, 0xFF795A9F, 0xFF507A5B,
-                0xFF52779D, 0xFF986344, 0xFFA45479);
+                0xFFF4F1E9, 0xFFFFFDF7, 0xFFEAE5D9, 0xFFE0DCD1, 0xFF1B2924,
+                0xFF6E756D, 0xFFAF6841, 0xFF66766B, 0xFFF06442, 0xFFFFFFFF,
+                0xFFF06442, 0xFFFFFFFF, 0xFFEDE8DE, 0xFFF06442, 0xFF5C916D,
+                0xFF4E7895, 0xFFB77F43, 0xFFAF6674);
     }
 
     private boolean motionEnabled() {
